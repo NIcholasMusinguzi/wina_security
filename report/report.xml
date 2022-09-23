@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="winna_security_quotation" model="ir.actions.report">
+            <field name="name">Quotation / Order Receipt </field>
+            <field name="model">sale.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">wina_security.sh_rr_sale_receipt</field>
+            <field name="report_file">wina_security.sh_rr_sale_receipt</field>
+            <field name="binding_model_id" ref="model_sale_order"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="wina_security.sh_rr_paperformat_inv" />
+            <!-- <field name="groups_id" eval="[(4, ref('account.group_account_invoice')),
+ (4, ref('account.group_account_readonly'))]"/> -->
+        </record>
+
+        <record id="winna_security_account_invoices" model="ir.actions.report">
+            <field name="name">ABUS Receipt </field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">wina_security.sh_rr_invoice</field>
+            <field name="report_file">wina_security.sh_rr_invoice</field>
+            <field name="print_report_name">(object.name)</field>
+            <!-- <field name="attachment">(object.state == 'posted') and ((object.name or 'INV').replace('/','_')+'.pdf')</field> -->
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="wina_security.sh_rr_paperformat_inv" />
+            <!-- <field name="groups_id" eval="[(4, ref('account.group_account_invoice')),
+ (4, ref('account.group_account_readonly'))]"/> -->
+        </record>
+
+</odoo>

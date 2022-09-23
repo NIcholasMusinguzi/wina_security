@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sh_rr_paperformat_inv" model="report.paperformat">
+        <field name="name">Receipt Report Invoice</field>
+        <field name="default" eval="True" />
+        <field name="format">custom</field>
+        <field name="page_height">200</field>
+        <field name="page_width">80</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">8</field>
+        <field name="margin_bottom">10</field>
+        <field name="margin_left">1</field>
+        <field name="margin_right">1</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">10</field>
+        <field name="dpi">130</field>
+    </record>
+
+</odoo>
