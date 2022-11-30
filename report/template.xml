@@ -3,10 +3,16 @@
     <template id="wina_security.sh_rr_invoice">
     <t t-call="web.basic_layout">
         <t t-foreach="docs" t-as="o">
-            <div class="o_boxed_header" style="height:160px;">
-                <div style="position:relative; width:100%; text-align:center; height:160px;">
-                    <!-- <img t-att-src="winna_classic,static/description/wina shoe logo clean-1 (1).jpg/" alt="Logo" style="width:60%; height:118px;%;"/> -->
-                    <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="height:190px;max-width:100%;"/>
+            <div class="o_boxed_header">
+                <div style="position:relative; width:100%; text-align:center;">
+                    <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="height:80px;max-width:100%;"/>
+                </div>
+                <div style="text-align:center">
+                    <h5>ABUS UGANDA</h5>
+                    <h5><span t-esc="o.company_id.street"/></h5>
+                    <h6>PHONE: <span t-esc="o.company_id.phone"/></h6>
+                    <h6><span t-esc="o.company_id.email"/></h6>
+
                 </div>
             </div>
             <!-- <div style="width:100%; text-align;center; height:18px;">
@@ -44,7 +50,7 @@
                     <strong style="font-size:18px;">Customer</strong>
                     <p class="m-0" t-field="o.invoice_date" style="font-size:18px;"/>
                 </div> -->
-                <div style="height:150px; margin-bottom:8px;">
+                <div style="margin-bottom:8px;">
                     <b style="font-size:20px; padding-left:4px;">Customer: </b><span style="font-size:20px; font-weight:400;" t-esc="o.partner_id.name"/><br/>
                     <b style="font-size:20px; padding-left:4px;">Phone Number: </b><span style="font-size:20px; font-weight:400;" t-esc="o.partner_id.phone"/><br/>
                     <b style="font-size:20px; padding-left:4px;" t-if="o.invoice_date">Invoice Date: </b><span style="font-size:20px; font-weight:400;" t-esc="o.invoice_date" t-if="o.invoice_date"/><br t-if="o.invoice_date"/>
@@ -200,14 +206,12 @@
                 
             </div>
 
-            <div t-attf-class="footer" style="border-bottom: 1px solid black;">
+            <!-- <div t-attf-class="footer" style="border-bottom: 1px solid black;">
                 <div class="text-center" style="text-align: center; padding: 3px; color: black; border-bottom:3px solid #000;">
                     <p>GOODS ONCE SOLD ARE NOT RETURNABLE<br/></p>
-                    <!-- <div t-if="report_type == 'pdf'">
-                        Page: <span class="page"/> / <span class="topage"/>
-                    </div> -->
+                   
                 </div>
-            </div>
+            </div> -->
         </t>
         </t>
     </template>

@@ -26,11 +26,13 @@
     'data': [
         'security/ir.model.access.csv',
         'data/paper_format.xml',
+        'report/sale_template.xml',
         'report/report.xml',
         'report/template.xml',
         'views/views.xml',
         'views/sale_view.xml',
         'views/templates.xml',
+        
     ],
     # only loaded in demonstration mode
     'demo': [
