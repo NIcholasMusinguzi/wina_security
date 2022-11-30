@@ -197,4 +197,201 @@
         </t>  
     </template>
 
+     <template id="sh_rr_sale_invoice" name="sh_rr_sale_invoice">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <t t-foreach="docs" t-as="o">
+                    <table class="table table-sm o_main_table" style="width:100%;padding:2px;">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                        <td style="height:18px;font-size:40px;font-weight:bolder;background-color:#000033;color:white;" colspan="3">INVOICE</td>
+                        <!-- <td></td>
+                        <td></td> -->
+                        <td style="text-align:right;">
+                            <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="max-height:100px;width:100%"/>
+                        </td>
+                        </tr>
+                        <tr></tr>
+                        <tr>
+                            <td style="text-align:right;font-weight:bolder">BILL TO:</td>
+                            <td></td>
+                            <td style="text-align:right;font-weight:bolder">SHIP TO:</td>
+                            <td style='text-align:left'></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right;font-weight:bolder">Name:</td>
+                            <td style='text-align:left;font-weight:bolder;'><span t-field="o.partner_id"/></td>
+                            <td style="text-align:right;font-weight:bolder">Name:</td>
+                            <td style='text-align:left;font-weight:bolder;'><span t-field="o.partner_id"/></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right;font-weight:bolder">Company Name</td>
+                            <td style='text-align:left;font-weight:bolder;'><span t-field="o.partner_id.company_name"/></td>
+                            <td style="text-align:right;font-weight:bolder">Company Name</td>
+                            <td style='text-align:left;font-weight:bolder;'><span t-esc="o.partner_id.company_name"/></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right;font-weight:bolder">Address</td>
+                            <td style='text-align:left;font-weight:bolder;'><span t-esc="o.partner_id.street"/></td>
+                            <td style="text-align:right;font-weight:bolder">Address</td>
+                            <td style='text-align:left;font-weight:bolder;'><span t-esc="o.partner_id.street"/></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right;font-weight:bolder">Phone</td>
+                            <td style='text-align:left;font-weight:bolder;'><span t-esc="o.partner_id.phone"/></td>
+                            <td style="text-align:right;font-weight:bolder">Phone</td>
+                            <td style='text-align:left;font-weight:bolder;'><span t-esc="o.partner_id.phone"/></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right;font-weight:bolder"></td>
+                            <td style='text-align:left;font-weight:bolder;'></td>
+                            <td style="text-align:right;font-weight:bolder">Date</td>
+                            <td style='text-align:left;font-weight:bolder;'><span t-esc="o.invoice_date"/></td>
+                        </tr>
+                        <tr></tr>
+                    </table> 
+                    <table class="table table-sm o_main_table" style="width:100%">
+                        <thead style="font-weight:bolder;background-color:#000033;color:white;">
+                        <tr>
+                            <th style="text-align:center">PRODUCT CODE
+                            </th>
+                            <th style="text-align:center"> DESCRIPTION OF ITEMS
+                            </th>
+                            <th style="text-align:center"> QTY
+                            </th>
+                            <th style="text-align:center">PRICE UGX
+                            </th>
+                            <th style="text-align:center"> TOTAL PRICE UGX
+                            </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr></tr>
+                            <t t-foreach="o.invoice_line_ids" t-as="line">
+                                <tr style="font-weight:bold">
+                                    <td><span t-esc="line.product_id.default_code"/></td>
+                                    <td><span t-esc="line.name"/></td>
+                                    <td><span t-esc="line.quantity"/></td>
+                                    <td><span t-esc="line.price_unit"/></td>
+                                    <td><span t-esc="line.price_subtotal"/></td>
+                                </tr>
+                            </t>
+                           
+                            <tr></tr>
+                            <tr>
+                                <td></td>
+                                <td>NOTE:</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td style="font-weight:bolder;">- PRICE DONOT INCLUDE VAT</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td style="font-weight:bolder;">- 50% ADVANCE PAYMENT 50% BALANCE UPON DELIVERY</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td style="font-weight:bolder;">DELIVERY 3 WEEKS FROM LPO DATE</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td style="font-weight:bolder">PRICES ARE VALID UNTIL 30TH SEPTEMBER 2022</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr></tr>
+                            <tr></tr>
+                            <tr></tr>
+                            <tr>
+                                <td>ORDER BY:</td>
+                                <td></td>
+                                <td></td>
+                                <td>TOTAL</td>
+                                <td><span t-esc="o.amount_total"/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-transform:uppercase;"><span t-field="o.invoice_user_id"/></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <!-- <td></td> -->
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-transform:uppercase;"><span t-esc="o.invoice_user_id.employee_id.job_title"/></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <!-- <td></td> -->
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-transform:uppercase;"><span t-esc="o.invoice_user_id.employee_id.work_phone"/></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <!-- <td></td> -->
+                            </tr>
+                            <tr></tr>
+                            <tr></tr>
+                           
+                        </tbody>
+                    </table>
+                </t>
+            </div>
+             <div class="footer" t-attf-class="footer o_boxed_footer o_company_layout" style="height:100px;">
+                <table class="o_main_table" style="width:100%;text-align:center;">
+                    <tr>
+                        <td></td>
+                        <td> WINA CLASSIC SECURITY AND SAFETY HARDWARE</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>    
+                    <tr>
+                        <td></td>
+                        <td>PLOT 1, CAPITAL SHOPPERS PLAZA, SHOWROOM 101, MARKET STREET</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>  
+                    <tr>
+                        <td></td>
+                        <td>POX BOX 3302, KAMPALA, UGANDA</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>   
+                    <tr>
+                        <td></td>
+                        <td> TEL: +256 706888000 EMAIL: info@security.ug</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>                                          
+
+                    
+                </table>
+            </div>
+        </t>  
+    </template>
+
+
 </odoo>
