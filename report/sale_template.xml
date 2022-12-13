@@ -65,9 +65,9 @@
                                 </th>
                                 <th style="text-align:center"> QTY
                                 </th>
-                                <th style="text-align:center">PRICE UGX
+                                <th style="text-align:center;text-transform:uppercase">PRICE <span t-esc="o.currency_id.symbol"/>
                                 </th>
-                                <th style="text-align:center"> TOTAL PRICE UGX
+                                <th style="text-align:center;text-transform:uppercase"> TOTAL PRICE <span t-esc="o.currency_id.symbol"/>
                                 </th>
                                 </tr>
                             </thead>
@@ -127,7 +127,7 @@
                                     <td></td>
                                     <td></td>
                                     <td>TOTAL</td>
-                                    <td><span t-esc="o.amount_total"/></td>
+                                    <td><span t-esc="o.currency_id.symbol"/> :<span t-esc="o.amount_total"/></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2" style="text-transform:uppercase;"><span t-field="o.user_id"/></td>
@@ -259,9 +259,9 @@
                             </th>
                             <th style="text-align:center"> QTY
                             </th>
-                            <th style="text-align:center">PRICE UGX
+                            <th style="text-align:center">PRICE <span t-esc="o.currency_id.symbol"/>
                             </th>
-                            <th style="text-align:center"> TOTAL PRICE UGX
+                            <th style="text-align:center"> TOTAL PRICE <span t-esc="o.currency_id.symbol"/>
                             </th>
                             </tr>
                         </thead>
@@ -321,7 +321,7 @@
                                 <td></td>
                                 <td></td>
                                 <td>TOTAL</td>
-                                <td><span t-esc="o.amount_total"/></td>
+                                <td><span t-esc="o.currency_id.symbol"/> : <span t-esc="o.amount_total"/></td>
                             </tr>
                             <tr>
                                 <td colspan="2" style="text-transform:uppercase;"><span t-field="o.invoice_user_id"/></td>
