@@ -37,6 +37,13 @@ class SaleOrderLine(models.Model):
 
     location_id = fields.Many2one('stock.location', string="Location",
                                   domain="[('usage','=','internal')]")
+    
+    @api.onchange("order_id.branch_id")
+    def _set_location_id(self):
+        for rec in self:
+            if rec.order_id.branch_id:
+                if rec.order_id.branch_id.location_id:
+                    rec.location_id = rec.order_id.branch_id.location_id.id
 
     
 class StockRule(models.Model):
