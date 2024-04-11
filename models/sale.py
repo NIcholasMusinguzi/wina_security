@@ -13,6 +13,17 @@ class WinaSaleOrder(models.Model):
         return res
 
     branch_id = fields.Many2one('branches',string="branch")
+    
+    def action_confirm(self):
+        self.ensure_one()
+        self.order_line._set_location_id()
+        return super(WinaSaleOrder, self).action_confirm()
+    @api.onchange("branch_id")
+    def _onchange_branch_id(self):
+        for rec in self:
+            if rec.branch_id:
+                for line in rec.order_line:
+                    line._set_location_id()
 
 
 
