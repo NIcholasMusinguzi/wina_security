@@ -34,11 +34,11 @@ class SaleOrderLine(models.Model):
             res['location_id'] = warehouse and \
                 warehouse.lot_stock_id.id or False
         return res
-
+    branch_id = fields.Many2one('branches',string="branch", related="order_id.branch_id")
     location_id = fields.Many2one('stock.location', string="Location",
                                   domain="[('usage','=','internal')]")
     
-    @api.onchange("order_id.branch_id")
+    @api.onchange("order_id.branch_id","branch_id")
     def _set_location_id(self):
         for rec in self:
             if rec.order_id.branch_id:
