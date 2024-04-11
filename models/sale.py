@@ -20,20 +20,20 @@ class WinaSaleOrder(models.Model):
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 
-    @api.model
-    def default_get(self, fields):
-        res = super(SaleOrderLine, self).default_get(fields)
-        emplo = self.env['hr.employee'].search([('user_id','=',self.env.user.id)], limit=1)
-        warehouse = self.env['stock.warehouse'].search(
-            [('company_id', '=', self.env.user.company_id.id)], limit=1)
-        if emplo and emplo.branch_id.location_id.id:
+    # @api.model
+    # def default_get(self, fields):
+    #     res = super(SaleOrderLine, self).default_get(fields)
+    #     emplo = self.env['hr.employee'].search([('user_id','=',self.env.user.id)], limit=1)
+    #     warehouse = self.env['stock.warehouse'].search(
+    #         [('company_id', '=', self.env.user.company_id.id)], limit=1)
+    #     if emplo and emplo.branch_id.location_id.id:
             
-            res['location_id'] = emplo and \
-                emplo.branch_id.location_id.id or False
-        else:
-            res['location_id'] = warehouse and \
-                warehouse.lot_stock_id.id or False
-        return res
+    #         res['location_id'] = emplo and \
+    #             emplo.branch_id.location_id.id or False
+    #     else:
+    #         res['location_id'] = warehouse and \
+    #             warehouse.lot_stock_id.id or False
+    #     return res
     branch_id = fields.Many2one('branches',string="branch", related="order_id.branch_id")
     location_id = fields.Many2one('stock.location', string="Location",
                                   domain="[('usage','=','internal')]")
