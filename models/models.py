@@ -26,3 +26,8 @@ class Employee(models.Model):
     _inherit ='hr.employee'
 
     branch_id = fields.Many2one('branches',string='Employee Branch')
+    
+class EmployeePublic(models.Model):
+    _inherit ='hr.employee.public'
+
+    branch_id = fields.Many2one('branches',string='Employee Branch')
