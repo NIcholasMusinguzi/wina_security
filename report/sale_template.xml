@@ -6,16 +6,18 @@
             <t t-foreach="docs" t-as="o">
                 <div class="page">
                   <div class="row">
-                    <div class="col-8 mt-5" style="margin:0px;padding:0px;">
+                        <div class="col-8 mt-5" style="margin:0px;padding:0px;width:50%;">
                         <h3 style="padding:5px;font-size:40px;font-weight:bolder;background-color:#000033;color:white;">QUOTATION</h3>
                     </div>
-                    <div class="col-4" style="margin:0px;padding:0px;">
-                        <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="max-height:150px;width:100%"/>
+                        <div class="col-4" style="margin:0px;padding:0px;width:50%;">
+                        <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)"
+                                style="max-height:150px;width:100%; margin-bottom: -128px;" />
                     </div>
-                    <!-- </div> -->
+                        <!-- </div> -->
                 </div>
-                    
-                        <table class="table table-sm o_main_table" style="width:100%;padding:2px;">
+
+                    <table class="table table-sm o_main_table table-borderless"
+                        style="width:100%;padding:2px;">
                       
                             <tr></tr>
                             <tr>
@@ -55,8 +57,8 @@
                                 <td style='text-align:left;font-weight:bolder;'><span t-esc="o.date_order"/></td>
                             </tr>
                             <tr></tr>
-                        </table> 
-                        <table class="table table-sm o_main_table" style="width:100%">
+                        </table>
+                    <table class="table table-sm o_main_table table-borderless" style="width:100%">
                             <thead style="font-weight:bolder;background-color:#000033;color:white;">
                             <tr>
                                 <th style="text-align:center">PRODUCT CODE
@@ -134,21 +136,21 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <!-- <td></td> -->
+                                <!-- <td></td> -->
                                 </tr>
                                 <tr>
                                     <td colspan="2" style="text-transform:uppercase;"><span t-esc="user_id.employee_id.job_title"/></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <!-- <td></td> -->
+                                <!-- <td></td> -->
                                 </tr>
                                 <tr>
                                     <td colspan="2" style="text-transform:uppercase;"><span t-esc="user_id.employee_id.work_phone"/></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <!-- <td></td> -->
+                                <!-- <td></td> -->
                                 </tr>
                                 <tr></tr>
                                 <tr></tr>
@@ -158,7 +160,8 @@
                     <!-- </t> -->
                 </div>
                 <div class="footer" t-attf-class="footer o_boxed_footer o_company_layout" style="height:100px;">
-                    <table class="o_main_table" style="width:100%;text-align:center;">
+                    <table class="o_main_table table-borderless"
+                        style="width:100%;text-align:center;">
                         <tr>
                             <td></td>
                             <td style="text-trabsform:uppercase;"> <span t-field="o.company_id"/></td>
@@ -201,15 +204,17 @@
          <t t-foreach="docs" t-as="o">
             <div class="page">
                 <div class="row">
-                    <div class="col-8 mt-5" style="margin:0px;padding:0px;">
+                        <div class="col-8 mt-5" style="margin:0px;padding:0px;width:50%;">
                         <h3 style="padding:5px;font-size:40px;font-weight:bolder;background-color:#000033;color:white;">INVOICE</h3>
                     </div>
-                    <div class="col-4" style="margin:0px;padding:0px;">
-                        <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="max-height:150px;width:100%"/>
+                        <div class="col-4" style="margin:0px;padding:0px;width:50%;">
+                        <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)"
+                                style="max-height:150px;width:100%;margin-bottom: -129px;" />
                     </div>
-                    <!-- </div> -->
+                        <!-- </div> -->
                 </div>
-                    <table class="table table-sm o_main_table" style="width:100%;padding:2px;">
+                    <table class="table table-sm o_main_table table-borderless"
+                        style="width:100%;padding:2px;">
                       
                         <tr></tr>
                         <tr>
@@ -249,8 +254,8 @@
                             <td style='text-align:left;font-weight:bolder;'><span t-esc="o.invoice_date"/></td>
                         </tr>
                         <tr></tr>
-                    </table> 
-                    <table class="table table-sm o_main_table" style="width:100%">
+                    </table>
+                    <table class="table table-sm o_main_table table-borderless" style="width:100%">
                         <thead style="font-weight:bolder;background-color:#000033;color:white;">
                         <tr>
                             <th style="text-align:center">PRODUCT CODE
@@ -349,10 +354,11 @@
                            
                         </tbody>
                     </table>
-                <!-- </t> -->
+                    <!-- </t> -->
             </div>
              <div class="footer" t-attf-class="footer o_boxed_footer o_company_layout" style="height:100px;">
-                <table class="o_main_table" style="width:100%;text-align:center;">
+                    <table class="o_main_table table-borderless"
+                        style="width:100%;text-align:center;">
                     <tr>
                             <td></td>
                             <td style="text-trabsform:uppercase;"> <span t-field="o.company_id"/></td>
