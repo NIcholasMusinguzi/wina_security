@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <template id='report_invoice_inherit' inherit_id="account.report_invoice_document">
+            <xpath expr="//div[@id='payment_term']" position="after">
+                <!-- <template id='report_invoice_document_inherit' inherit_id="account.report_invoice_document">
+            <xpath expr="//t/div/div/div/div[@id='payment_term']" position="after"> -->
+                <div class="col-6">
+                 <br/>
+                <br/>
+                <div class="row">
+                    <div class="col">Signature : </div>
+                </div>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>

@@ -1,18 +1,31 @@
 <odoo>
   <data>
 
+    <record id="view_res_users_form_inh" model="ir.ui.view">
+      <field name="name">res.users.form.inherit</field>
+      <field name="model">res.users</field>
+      <field name="inherit_id" ref="base.view_users_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//group[1]" position="before">
+          <group>
+            <field name="is_manager_access" />
+          </group>
+        </xpath>
+      </field>
+    </record>
+
     <!-- Branches - explicit list view definition -->
     <record model="ir.ui.view" id="wina_security_branches_list">
       <field name="name">Branches</field>
       <field name="model">branches</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="name"/>
-          <field name="branch_code"/>
-          <field name="phone"/>
-          <field name="email"/>
-          <field name="address"/>
-          <field name="manager_id"/>
+          <field name="name" />
+          <field name="branch_code" />
+          <field name="phone" />
+          <field name="email" />
+          <field name="address" />
+          <field name="manager_id" />
         </tree>
       </field>
     </record>
@@ -25,22 +38,22 @@
           <sheet>
             <!-- <separator string="Branch Form" /> -->
             <group>
-              <group>              
-                <field name="name"/>
-                <field name="branch_code"/>
-                <field name="phone"/>
-                <field name="email"/>
+              <group>
+                <field name="name" />
+                <field name="branch_code" />
+                <field name="phone" />
+                <field name="email" />
               </group>
               <group>
-                <field name="address"/>
-                <field name="manager_id"/>
-                <field name="location_id" required="1"/>
+                <field name="address" />
+                <field name="manager_id" />
+                <field name="location_id" required="1" />
               </group>
             </group>
           </sheet>
           <div class="oe_chatter">
-            <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
-            <field name="message_ids" widget="mail_thread"/>
+            <field name="message_follower_ids" widget="mail_followers" groups="base.group_user" />
+            <field name="message_ids" widget="mail_thread" />
           </div>
         </form>
       </field>
@@ -51,10 +64,10 @@
         model="ir.ui.view">
         <field name="name">wina_security_hr_inherit</field>
         <field name="model">hr.employee</field>
-        <field name="inherit_id" ref="hr.view_employee_form" />
+      <field name="inherit_id" ref="hr.view_employee_form" />
         <field name="arch" type="xml">
           <xpath expr="//group/group/field[@name='work_email']" position="after">
-            <field name="branch_id" required="1"/>
+          <field name="branch_id" required="1" />
           </xpath>
         </field>
       </record>
@@ -67,22 +80,27 @@
     </record>
 
 
-
     <!-- Top menu item -->
 
-    <menuitem name="Branches" id="wina_security.menu_root"/>
+    <menuitem name="Branches" id="wina_security.menu_root" />
 
     <!-- menu categories -->
 
-    <menuitem name="Branches" id="wina_security.menu_1" parent="wina_security.menu_root" action="wina_security_action_window"/>
+    <menuitem name="Branches" id="wina_security.menu_1" parent="wina_security.menu_root"
+      action="wina_security_action_window" />
     <!-- <menuitem name="Menu 2" id="wina_security.menu_2" parent="wina_security.menu_root"/> -->
 
     <!-- actions -->
-<!--
+    <!--
     <menuitem name="List" id="wina_security.menu_1_list" parent="wina_security.menu_1"
               action="wina_security.action_window"/>
     <menuitem name="Server to list" id="wina_security" parent="wina_security.menu_2"
               action="wina_security.action_server"/>
+
 -->
+
+    <menuitem name="Receipts" id="menu_purchase_receipts"
+      action="account.action_move_in_receipt_type" />
+
   </data>
 </odoo>
