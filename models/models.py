@@ -137,7 +137,8 @@ class Product(models.Model):
                 raise UserError(
                     _('Sorry, you are not allowed to edit the following fields: %s.') % ', '.join(modified_restricted_fields)
                 )
-        return super(ProductTemplate, self).write(vals)
+        return super(Product, self).write(vals)
+    
 
     
     
