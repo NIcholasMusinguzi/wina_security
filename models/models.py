@@ -117,27 +117,44 @@ class Product(models.Model):
     
     _inherit = 'product.product'
 
+    # @api.model
+    # def create(self, vals):
+    #     if self.env.user.is_manager_access != True:
+    #         raise UserError(
+    #             _('Sorry, you are not allowed to create new product.'),
+    #         )
+    #     else:
+    #         return super(Product, self).create(vals)
+    
+    
+    # def write(self, vals):
+    #     # Check if the user has is_manager_access=True
+    #     if not self.env.user.is_manager_access:
+    #         # Check if name or default_code is being modified
+    #         restricted_fields = ['name', 'default_code']
+    #         modified_restricted_fields = [field for field in restricted_fields if field in vals]
+    #         if modified_restricted_fields:
+    #             raise UserError(
+    #                 _('Sorry, you are not allowed to edit the following fields: %s.') % ', '.join(modified_restricted_fields)
+    #             )
+    #     return super(Product, self).write(vals)
+    
+    
     @api.model
     def create(self, vals):
-        if self.env.user.is_manager_access != True:
-            raise UserError(
-                _('Sorry, you are not allowed to create new product.'),
-            )
-        else:
-            return super(Product, self).create(vals)
-    
-    
-    def write(self, vals):
-        # Check if the user has is_manager_access=True
         if not self.env.user.is_manager_access:
-            # Check if name or default_code is being modified
+            raise UserError(_('Sorry, you are not allowed to create new product.'))
+        return super().create(vals)
+
+    def write(self, vals):
+        if not self.env.user.is_manager_access:
             restricted_fields = ['name', 'default_code']
             modified_restricted_fields = [field for field in restricted_fields if field in vals]
             if modified_restricted_fields:
                 raise UserError(
                     _('Sorry, you are not allowed to edit the following fields: %s.') % ', '.join(modified_restricted_fields)
                 )
-        return super(Product, self).write(vals)
+        return super().write(vals)
     
 
     
