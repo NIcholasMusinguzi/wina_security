@@ -19,14 +19,14 @@
       <field name="name">Branches</field>
       <field name="model">branches</field>
       <field name="arch" type="xml">
-        <tree>
+        <list>
           <field name="name" />
           <field name="branch_code" />
           <field name="phone" />
           <field name="email" />
           <field name="address" />
           <field name="manager_id" />
-        </tree>
+        </list>
       </field>
     </record>
     <!-- Branches - explicit form view definition -->
@@ -76,7 +76,7 @@
     <record model="ir.actions.act_window" id="wina_security_action_window">
       <field name="name">Branches</field>
       <field name="res_model">branches</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">list,form</field>
     </record>
 
 
