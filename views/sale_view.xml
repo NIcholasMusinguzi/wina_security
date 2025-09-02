@@ -41,7 +41,7 @@
                 <field name="branch_id" invisible="1" />
             </xpath>
              <xpath
-                expr="//page[@name='order_lines']/field[@name='order_line']/tree/field[@name='name']"
+                expr="//page[@name='order_lines']/field[@name='order_line']/list/field[@name='name']"
                 position="after">
                 <field name="location_id"
                     domain="[('company_id','=',parent.company_id), ('usage','=','internal')]"
