@@ -45,44 +45,44 @@ class ResUsers(models.Model):
 class UoM(models.Model):
     _inherit = "uom.uom"
 
-    # @api.model
-    # def create(self, vals):
-    #     if self.env.user.is_manager_access != True:
-    #         raise UserError(
-    #             _('Sorry, you are not allowed to create new UOM.'),
-    #         )
-    #     else:
-    #         return super(UoM, self).create(vals)
+    @api.model
+    def create(self, vals):
+        if self.env.user.is_manager_access != True:
+            raise UserError(
+                _('Sorry, you are not allowed to create new UOM.'),
+            )
+        else:
+            return super(UoM, self).create(vals)
 
 
-    # def write(self, vals):
-    #     if self.env.user.is_manager_access != True:
-    #         raise UserError(
-    #             _('Sorry, you are not allowed to update UOM.'),
-    #         )
-    #     else:
-    #         return super(UoM, self).write(vals)
+    def write(self, vals):
+        if self.env.user.is_manager_access != True:
+            raise UserError(
+                _('Sorry, you are not allowed to update UOM.'),
+            )
+        else:
+            return super(UoM, self).write(vals)
 
 
 class UoMCategory(models.Model):
     _inherit = "uom.category"
 
-    # @api.model
-    # def create(self, vals):
-    #     if self.env.user.is_manager_access != True:
-    #         raise UserError(
-    #             _('Sorry, you are not allowed to create new UOM.'),
-    #         )
-    #     else:
-    #         return super(UoMCategory, self).create(vals)
+    @api.model
+    def create(self, vals):
+        if self.env.user.is_manager_access != True:
+            raise UserError(
+                _('Sorry, you are not allowed to create new UOM.'),
+            )
+        else:
+            return super(UoMCategory, self).create(vals)
 
-    # def write(self, vals):
-    #     if self.env.user.is_manager_access != True:
-    #         raise UserError(
-    #             _('Sorry, you are not allowed to update  UOM.'),
-    #         )
-        # else:
-        #     return super(UoMCategory, self).write(vals)
+    def write(self, vals):
+        if self.env.user.is_manager_access != True:
+            raise UserError(
+                _('Sorry, you are not allowed to update  UOM.'),
+            )
+        else:
+            return super(UoMCategory, self).write(vals)
     
 
 
